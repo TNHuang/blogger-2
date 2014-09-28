@@ -14,12 +14,13 @@ class ArticlesController < ApplicationController
 		redirect_to article_path(@article)
 	end
 
+
 	def destroy
 		@article = Article.find(params[:id])
 		@article.destroy
 		flash.notice = "Article '#{@article.title}' destroy!"
 
-		redirect_to article_path(@article)
+		redirect_to articles_path
 	end
 
 	def edit
@@ -32,7 +33,7 @@ class ArticlesController < ApplicationController
 		#update automatically save change, unlike create
 		flash.notice = "Article '#{@article.title}' updated!"
 
-		redirect_to article_path(@article)
+		redirect_to articles_path(@article)
 	end
 
 	def index
